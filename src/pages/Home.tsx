@@ -333,7 +333,7 @@ export default function Home() {
 
       <div className="container mx-auto">
         <AdBanner 
-          slot="1234567890"
+          slot="1215080567"
           format="horizontal"
           className="max-w-4xl mx-auto px-4"
         />
@@ -517,7 +517,7 @@ export default function Home() {
 
       <div className="container mx-auto">
         <AdBanner 
-          slot="0987654321"
+          slot="1215080567"
           format="horizontal"
           className="max-w-4xl mx-auto px-4 mb-8"
         />
