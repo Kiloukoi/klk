@@ -71,7 +71,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [paginatedListings, setPaginatedListings] = useState<Listing[]>([]);
   const [totalPages, setTotalPages] = useState(1);
-  const listingsPerPage = 32;
+  const listingsPerPage = 36;
 
   useEffect(() => {
     fetchCategories();
