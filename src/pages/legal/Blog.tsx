@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import PageHeader from '../../components/PageHeader';
 import BackButton from '../../components/BackButton';
+import AdBanner from '../components/AdBanner';
 
 interface BlogPost {
   id: string;
@@ -43,6 +44,14 @@ export default function Blog() {
       <BackButton className="mb-6" />
       
       <PageHeader title="Blog" />
+
+      <div className="container mx-auto">
+        <AdBanner 
+          slot="1215080567"
+          format="horizontal"
+          className="max-w-4xl mx-auto px-4"
+        />
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {blogPosts.map(post => (
