@@ -39,19 +39,19 @@ export default function Blog() {
     window.scrollTo(0, 0);
   }, []);
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <BackButton className="mb-6" />
-      
-      <PageHeader title="Blog" 
-        <div className="container mx-auto">
+  <div className="container mx-auto">
         <AdBanner 
           slot="1215080567"
           format="horizontal"
           className="max-w-4xl mx-auto px-4"
         />
       </div>
-      />
+  
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <BackButton className="mb-6" />
+      
+      <PageHeader title="Blog"/>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {blogPosts.map(post => (
