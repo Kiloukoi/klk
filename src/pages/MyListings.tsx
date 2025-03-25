@@ -9,6 +9,7 @@ import ListingImage from '../components/ListingImage';
 import PromoteListingButton from '../components/PromoteListingButton';
 import PromotedListingBadge from '../components/PromotedListingBadge';
 import BoostedBadge from '../components/BoostedBadge';
+import AdBanner from '../components/AdBanner';
 
 interface Listing {
   id: string;
@@ -134,6 +135,13 @@ export default function MyListings() {
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col items-center mb-8">
         <PageHeader title="Mes annonces" />
+        <div className="container mx-auto">
+        <AdBanner 
+          slot="1215080567"
+          format="horizontal"
+          className="max-w-4xl mx-auto px-4"
+        />
+      </div>
         <Link
           to="/create-listing"
           className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-primary hover:bg-primary-dark mt-4"
