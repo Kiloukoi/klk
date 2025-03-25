@@ -180,7 +180,7 @@ export default function MyReviews() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <PageHeader title="Évaluations" />
+      <PageHeader title="Évaluations reçues" />
 
       {pendingReviews.length > 0 && (
         <div className="mb-8">
