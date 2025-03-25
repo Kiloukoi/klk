@@ -5,6 +5,7 @@ import { Star, Edit, Trash2, AlertCircle } from 'lucide-react';
 import toast from 'react-hot-toast';
 import PageHeader from '../components/PageHeader';
 import { Link } from 'react-router-dom';
+import AdBanner from '../components/AdBanner';
 
 interface Review {
   id: string;
@@ -180,7 +181,15 @@ export default function MyReviews() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <PageHeader title="Évaluations reçues" />
+      <PageHeader title="Évaluations" />
+
+      <div className="container mx-auto">
+        <AdBanner 
+          slot="1215080567"
+          format="horizontal"
+          className="max-w-4xl mx-auto px-4"
+        />
+      </div>
 
       {pendingReviews.length > 0 && (
         <div className="mb-8">
