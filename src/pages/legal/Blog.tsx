@@ -42,6 +42,14 @@ export default function Blog() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <BackButton className="mb-6" />
+
+      <div className="container mx-auto">
+        <AdBanner 
+          slot="1215080567"
+          format="horizontal"
+          className="max-w-4xl mx-auto px-4"
+        />
+      </div>
       
       <PageHeader title="Blog" />
 
