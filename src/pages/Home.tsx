@@ -460,7 +460,7 @@ export default function Home() {
                   {index > 0 && index % 12 === 0 && (
                     <div className="col-span-full py-8">
                       <AdBanner 
-                        slot="9876543210"
+                        slot="1215080567"
                         format="rectangle"
                         className="mx-auto max-w-xl"
                       />
