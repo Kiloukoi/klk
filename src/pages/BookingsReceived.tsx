@@ -191,6 +191,14 @@ export default function BookingsReceived() {
     <div className="container mx-auto px-4 py-8">
       <PageHeader title="Réservations reçues" />
 
+      <div className="container mx-auto">
+        <AdBanner 
+          slot="1215080567"
+          format="horizontal"
+          className="max-w-4xl mx-auto px-4"
+        />
+      </div>
+
       {bookings.length === 0 ? (
         <div className="bg-white rounded-xl shadow-md p-8 text-center">
           <Calendar className="w-16 h-16 text-gray-400 mx-auto mb-4" />
