@@ -61,7 +61,7 @@ export default function Legal() {
           <p className="text-sm text-gray-600">
             Pour toute question concernant les mentions légales, contactez notre service juridique :
             <a href="mailto:conatct@kilou-koi.fr" className="text-primary hover:text-primary-dark ml-1">
-              conatact@kilou-koi.fr
+              contact@kilou-koi.fr
             </a>
           </p>
         </div>
