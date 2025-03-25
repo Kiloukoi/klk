@@ -5,6 +5,7 @@ import { Star, MessageCircle } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import PageHeader from '../components/PageHeader';
+import AdBanner from '../components/AdBanner';
 
 interface Booking {
   id: string;
