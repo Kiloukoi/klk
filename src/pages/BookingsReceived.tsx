@@ -5,6 +5,7 @@ import { Check, X, Calendar, MessageCircle } from 'lucide-react';
 import toast from 'react-hot-toast';
 import PageHeader from '../components/PageHeader';
 import { Link, useNavigate } from 'react-router-dom';
+import AdBanner from '../components/AdBanner';
 
 interface Booking {
   id: string;
