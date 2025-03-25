@@ -51,13 +51,7 @@ export default function Blog() {
             key={post.id}
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
-            <div className="container mx-auto">
-        <AdBanner 
-          slot="1215080567"
-          format="horizontal"
-          className="max-w-4xl mx-auto px-4"
-        />
-      </div>
+
             <img
               src={post.image}
               alt={post.title}
