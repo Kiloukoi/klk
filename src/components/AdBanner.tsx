@@ -41,8 +41,8 @@ export default function AdBanner({ slot, format = 'auto', className = '' }: AdBa
         className="adsbygoogle"
         style={{ display: 'block', minHeight: '100px' }}
         data-ad-client="ca-pub-3280343302166205"
-        data-ad-slot={slot}
-        data-ad-format={format}
+        data-ad-slot="1215080567"
+        data-ad-format="auto"
         data-full-width-responsive="true"
       />
     </div>
