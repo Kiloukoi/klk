@@ -5,6 +5,7 @@ import { Users, UserMinus, Link as LinkIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import PageHeader from '../components/PageHeader';
+import AdBanner from '../components/AdBanner';
 
 interface Follow {
   id: string;
@@ -90,6 +91,14 @@ export default function Kilouwers() {
   return (
     <div className="container mx-auto px-4 py-8">
       <PageHeader title="Mes Kilouwers" />
+
+      <div className="container mx-auto">
+        <AdBanner 
+          slot="1215080567"
+          format="horizontal"
+          className="max-w-4xl mx-auto px-4"
+        />
+      </div>
 
       {follows.length === 0 ? (
         <div className="bg-white rounded-lg shadow-md p-8 text-center">
