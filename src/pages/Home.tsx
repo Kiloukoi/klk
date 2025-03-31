@@ -521,8 +521,7 @@ export default function Home() {
     className="max-w-4xl mx-auto px-4"
   />
 </div>
-      />
-      </div>
+
     </div>
   );
 }
