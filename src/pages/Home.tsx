@@ -331,10 +331,14 @@ export default function Home() {
         </div>
       </section>
 
-const script = document.createElement("script");
-    script.src = "https://shebudriftaiter.net/tag.min.js";
-    script.setAttribute("data-zone", "9154169");
-    document.body.appendChild(script);
+<ins
+        className="adsbygoogle"
+        style={{ display: 'block', minHeight: '100px' }}
+        data-ad-client="191c9b78d4e89505f3daa86f0bb369f3"
+        data-ad-slot={9154169}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
 
       <section className="container mx-auto px-4 py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
