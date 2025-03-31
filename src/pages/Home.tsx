@@ -333,7 +333,6 @@ export default function Home() {
 
 <div className="container mx-auto"> 
   <AdBanner 
-    zoneId="9154169"
     adLink="https://povaique.top/4/9154371"
     className="max-w-4xl mx-auto px-4"
   />
