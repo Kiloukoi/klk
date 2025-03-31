@@ -458,13 +458,12 @@ export default function Home() {
               {paginatedListings.map((listing, index) => (
                 <React.Fragment key={listing.id}>
                   {index > 0 && index % 12 === 0 && (
-                    <div className="col-span-full py-8">
-                      <AdBanner 
-                        slot="1215080567"
-                        format="rectangle"
-                        className="mx-auto max-w-xl"
-                      />
-                    </div>
+                    <div className="container mx-auto"> 
+  <AdBanner 
+    adLink="https://povaique.top/4/9154510"
+    className="max-w-4xl mx-auto px-4"
+  />
+</div>
                   )}
                   <Link
                     to={`/listing/${listing.id}`}
