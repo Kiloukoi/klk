@@ -2,10 +2,11 @@ import React, { useEffect, useRef } from 'react';
 
 interface AdBannerProps {
   zoneId: string;
+  adLink: string;
   className?: string;
 }
 
-export default function AdBanner({ zoneId, className = '' }: AdBannerProps) {
+export default function AdBanner({ zoneId, adLink, className = '' }: AdBannerProps) {
   const adRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -20,8 +21,10 @@ export default function AdBanner({ zoneId, className = '' }: AdBannerProps) {
   }, [zoneId]);
 
   return (
-    <div ref={adRef} className={`ad-container min-h-[100px] ${className}`} data-zone={zoneId}>
-      {/* Monetag ads will be injected dynamically by the script */}
-    </div>
+    <a href={adLink} target="_blank" rel="noopener noreferrer" className="block">
+      <div ref={adRef} className={`ad-container min-h-[100px] ${className}`} data-zone={zoneId}>
+        {/* Monetag ads will be injected dynamically by the script */}
+      </div>
+    </a>
   );
 }
