@@ -1,30 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 interface AdBannerProps {
-  zoneId: string;
   adLink: string;
   className?: string;
 }
 
-export default function AdBanner({ zoneId, adLink, className = '' }: AdBannerProps) {
-  const adRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://shebudriftaiter.net/tag.min.js';
-    script.setAttribute('data-zone', zoneId);
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, [zoneId]);
-
+export default function AdBanner({ adLink, className = '' }: AdBannerProps) {
   return (
     <a href={adLink} target="_blank" rel="noopener noreferrer" className="block">
-      <div ref={adRef} className={`ad-container min-h-[100px] ${className}`} data-zone={zoneId}>
-        {/* Monetag ads will be injected dynamically by the script */}
-      </div>
+      <iframe 
+        src={adLink}
+        width="100%" 
+        height="250" 
+        style={{ border: 'none', overflow: 'hidden' }}
+        scrolling="no"
+        allowFullScreen
+      ></iframe>
     </a>
   );
 }
