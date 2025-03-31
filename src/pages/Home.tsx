@@ -331,13 +331,14 @@ export default function Home() {
         </div>
       </section>
 
-<div className="container mx-auto">
-        <AdBanner 
-          zoneId="9154169"
-          format="horizontal"
-          className="max-w-4xl mx-auto px-4"
-        />
-      </div>
+<div className="container mx-auto"> 
+  <AdBanner 
+    zoneId="9154169"
+    adLink="https://povaique.top/4/9154371"
+    className="max-w-4xl mx-auto px-4"
+  />
+</div>
+
 
       <section className="container mx-auto px-4 py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
