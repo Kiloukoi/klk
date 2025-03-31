@@ -331,14 +331,13 @@ export default function Home() {
         </div>
       </section>
 
-<ins
-        className="adsbygoogle"
-        style={{ display: 'block', minHeight: '100px' }}
-        data-ad-client="191c9b78d4e89505f3daa86f0bb369f3"
-        data-ad-slot={9154169}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
+<div className="container mx-auto">
+        <AdBanner 
+          slot="9154169"
+          format="horizontal"
+          className="max-w-4xl mx-auto px-4"
+        />
+      </div>
 
       <section className="container mx-auto px-4 py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
