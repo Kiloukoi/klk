@@ -331,7 +331,10 @@ export default function Home() {
         </div>
       </section>
 
-<script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://shebudriftaiter.net/tag.min.js',9154169,document.body||document.documentElement)</script>
+const script = document.createElement("script");
+    script.src = "https://shebudriftaiter.net/tag.min.js";
+    script.setAttribute("data-zone", "9154169");
+    document.body.appendChild(script);
 
       <section className="container mx-auto px-4 py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
