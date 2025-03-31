@@ -331,13 +331,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="container mx-auto">
-        <AdBanner 
-          slot="1215080567"
-          format="horizontal"
-          className="max-w-4xl mx-auto px-4"
-        />
-      </div>
+<script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://shebudriftaiter.net/tag.min.js',9154169,document.body||document.documentElement)</script>
 
       <section className="container mx-auto px-4 py-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
