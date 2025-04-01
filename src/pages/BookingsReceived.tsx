@@ -205,7 +205,7 @@ export default function BookingsReceived() {
           <h2 className="text-xl font-semibold text-gray-700 mb-2">
             Aucune réservation pour le moment
           </h2>
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-600 mb-8">
             Vous n'avez pas encore reçu de réservations pour vos annonces
           </p>
           <Link
