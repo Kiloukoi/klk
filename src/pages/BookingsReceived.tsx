@@ -192,7 +192,12 @@ export default function BookingsReceived() {
     <div className="container mx-auto px-4 py-8">
       <PageHeader title="Réservations reçues" />
 
-      <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="139790" async data-cfasync="false"></script>
+      <div className="container mx-auto"> 
+  <AdBanner 
+    adLink="https://povaique.top/4/9158218"
+    className="max-w-4xl mx-auto px-4"
+  />
+</div>
 
       {bookings.length === 0 ? (
         <div className="bg-white rounded-xl shadow-md p-8 text-center">
