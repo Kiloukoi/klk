@@ -7,7 +7,7 @@ interface AdBannerProps {
 
 export default function AdBanner({ adLink, className = '' }: AdBannerProps) {
   return (
-    <a href={adLink} target="_blank" rel="noopener noreferrer" className="block">
+    <a href={adLink} target="_blank" rel="noopener noreferrer" className="block className={`block ${className}`}">
       <iframe 
         src={adLink}
         width="100%" 
