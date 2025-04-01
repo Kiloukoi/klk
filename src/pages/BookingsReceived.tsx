@@ -195,8 +195,9 @@ export default function BookingsReceived() {
       <div className="container mx-auto "> 
   <AdBanner 
     adLink="https://povaique.top/4/9158218"
-    className="max-w-4xl mx-auto px-4 !mb-4"
+    className="max-w-4xl mx-auto px-4"
   />
+        <div className="h-4"></div>
 </div>
 
       {bookings.length === 0 ? (
