@@ -17,7 +17,7 @@ export default function MonetizationBanner({ className = '', url = 'https://www.
     // Set attributes that help bypass blockers
     iframe.style.width = '100%';
     iframe.style.height = '100%';
-    iframe.style.minHeight = '200px';
+    iframe.style.minHeight = '100px';
     iframe.style.border = 'none';
     iframe.style.overflow = 'hidden';
     iframe.title = 'Content Frame';
