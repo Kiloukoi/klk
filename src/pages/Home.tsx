@@ -431,7 +431,7 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto">
-        <MonetizationBanner url="https://www.profitableratecpm.com/prtwx7u63?key=b8b3ba83074bbb1330d3ec04c489a161" className="max-w-4xl mx-auto px-4" />
+        <MonetizationBanner className="max-w-4xl mx-auto px-4 mb-8" />
       </div>
 
       <section className="container mx-auto px-4 py-24">
