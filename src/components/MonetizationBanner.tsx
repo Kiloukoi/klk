@@ -36,7 +36,7 @@ export default function MonetizationBanner({ className = '', url = 'https://www.
         <html>
           <body style="margin:0;display:flex;align-items:center;justify-content:center;background:#f9f9f9;color:#666;font-family:sans-serif;">
             <div style="text-align:center;">
-              <div style="font-size:14px;">Emplacement publicitaire</div>
+              <div style="font-size:20px;">Emplacement publicitaire</div>
             </div>
           </body>
         </html>
