@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 interface AdBannerProps {
   slot: string;
@@ -7,44 +7,61 @@ interface AdBannerProps {
 }
 
 export default function AdBanner({ slot, format = 'auto', className = '' }: AdBannerProps) {
-  const adRef = React.useRef<HTMLDivElement>(null);
+  const adRef = useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
-    // Wait for the element to be properly sized
-    const observer = new ResizeObserver((entries) => {
-      const entry = entries[0];
-      if (entry && entry.contentRect.width > 0) {
-        try {
-          // Only push ad if container has width
-          // @ts-ignore
+  useEffect(() => {
+    if (!adRef.current) return;
+    
+    try {
+      // Create a custom script element
+      const script = document.createElement('script');
+      script.async = true;
+      script.dataset.adClient = 'ca-pub-3280343302166205';
+      script.dataset.adSlot = slot;
+      script.dataset.adFormat = format;
+      script.dataset.fullWidthResponsive = 'true';
+      
+      // Add a random ID to avoid caching
+      const randomId = `ad-${Math.random().toString(36).substring(2, 15)}`;
+      script.id = randomId;
+      
+      // Set the script content
+      script.innerHTML = `
+        (function() {
+          const adElement = document.getElementById('${randomId}');
+          if (!adElement || !adElement.parentNode) return;
+          
+          const adContainer = adElement.parentNode;
+          const ins = document.createElement('ins');
+          ins.className = 'adsbygoogle';
+          ins.style.display = 'block';
+          ins.style.minHeight = '100px';
+          ins.dataset.adClient = 'ca-pub-3280343302166205';
+          ins.dataset.adSlot = '${slot}';
+          ins.dataset.adFormat = '${format}';
+          ins.dataset.fullWidthResponsive = 'true';
+          
+          adContainer.appendChild(ins);
+          
           (window.adsbygoogle = window.adsbygoogle || []).push({});
-          // Disconnect after successful push
-          observer.disconnect();
-        } catch (error) {
-          console.error('Error loading AdSense ad:', error);
-        }
-      }
-    });
-
-    if (adRef.current) {
-      observer.observe(adRef.current);
+        })();
+      `;
+      
+      // Add the script to the container
+      adRef.current.appendChild(script);
+    } catch (error) {
+      console.error('Error loading AdSense ad:', error);
     }
-
+    
+    // Cleanup function
     return () => {
-      observer.disconnect();
+      if (adRef.current) {
+        adRef.current.innerHTML = '';
+      }
     };
-  }, []);
+  }, [slot, format]);
 
   return (
-    <div ref={adRef} className={`ad-container min-h-[100px] ${className}`}>
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block', minHeight: '100px' }}
-        data-ad-client="ca-pub-3280343302166205"
-        data-ad-slot={slot}
-        data-ad-format={format}
-        data-full-width-responsive="true"
-      />
-    </div>
+    <div ref={adRef} className={`ad-container min-h-[100px] ${className}`} data-ad-container="true"></div>
   );
 }
