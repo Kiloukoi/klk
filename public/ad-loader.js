@@ -30,25 +30,26 @@
           iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
           
           // Get URL from data attribute or use default
-          let url = container.getAttribute('data-ad-url');
+          let url = container.getAttribute('data-ad-url') || 'https://www.profitableratecpm.com/z8jj97wv?key=21713001843103ea1def6c2e4b45be45';
           
-          // If no URL is specified, use a default based on container type
+          // If no URL is specified, use placeholder content
           if (!url) {
-            if (container.getAttribute('data-position') === 'left') {
-              url = 'https://phoampor.top/4/9211914';
-            } else if (container.getAttribute('data-position') === 'right') {
-              url = 'https://phoampor.top/4/9211914';
-            } else if (container.getAttribute('data-ad-listing') === 'true') {
-              url = 'https://phoampor.top/4/9154484';
-            } else {
-              url = 'https://phoampor.top/4/9154371';
-            }
+            // Placeholder content when no URL is provided
+            iframe.srcdoc = `
+              <html>
+                <body style="margin:0;display:flex;align-items:center;justify-content:center;background:#f9f9f9;color:#666;font-family:sans-serif;height:100%;">
+                  <div style="text-align:center;">
+                    <div style="font-size:14px;">Emplacement publicitaire</div>
+                  </div>
+                </body>
+              </html>
+            `;
+          } else {
+            // Add random parameters to bypass caching
+            const randomParam = Math.floor(Math.random() * 1000000);
+            const timestamp = Date.now();
+            iframe.src = `${url}?${randomParam}&t=${timestamp}&ref=${encodeURIComponent(window.location.hostname)}&idx=${index}`;
           }
-          
-          // Add random parameters to bypass caching
-          const randomParam = Math.floor(Math.random() * 1000000);
-          const timestamp = Date.now();
-          iframe.src = `${url}?${randomParam}&t=${timestamp}&ref=${encodeURIComponent(window.location.hostname)}&idx=${index}`;
           
           // Clear container and append iframe
           container.innerHTML = '';

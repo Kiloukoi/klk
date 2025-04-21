@@ -146,7 +146,7 @@ export default function MyListings() {
 
       {/* Monetization Banner */}
       <div className="mb-6">
-        <MonetizationBanner url="https://phoampor.top/4/9154371" />
+        <MonetizationBanner />
       </div>
 
       {listings.length === 0 ? (

@@ -5,7 +5,7 @@ interface MonetizationBannerProps {
   url?: string;
 }
 
-export default function MonetizationBanner({ className = '', url = 'https://phoampor.top/4/9154371' }: MonetizationBannerProps) {
+export default function MonetizationBanner({ className = '', url = 'https://www.profitableratecpm.com/z8jj97wv?key=21713001843103ea1def6c2e4b45be45' }: MonetizationBannerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -26,7 +26,22 @@ export default function MonetizationBanner({ className = '', url = 'https://phoa
     
     // Add random parameter to bypass caching
     const randomParam = Math.floor(Math.random() * 1000000);
-    iframe.src = `${url}?${randomParam}&ref=${encodeURIComponent(window.location.hostname)}`;
+    
+    // Only set src if URL is provided
+    if (url) {
+      iframe.src = `${url}?${randomParam}&ref=${encodeURIComponent(window.location.hostname)}`;
+    } else {
+      // Placeholder content when no URL is provided
+      iframe.srcdoc = `
+        <html>
+          <body style="margin:0;display:flex;align-items:center;justify-content:center;background:#f9f9f9;color:#666;font-family:sans-serif;">
+            <div style="text-align:center;">
+              <div style="font-size:14px;">Emplacement publicitaire</div>
+            </div>
+          </body>
+        </html>
+      `;
+    }
     
     // Clear container and append iframe
     containerRef.current.innerHTML = '';
@@ -45,6 +60,7 @@ export default function MonetizationBanner({ className = '', url = 'https://phoa
       ref={containerRef} 
       className={`monetization-container min-h-[100px] w-full ${className}`}
       data-ad-container="true"
+      data-ad-url={url}
     ></div>
   );
 }

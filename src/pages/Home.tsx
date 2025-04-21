@@ -431,7 +431,7 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto">
-        <MonetizationBanner url="https://phoampor.top/4/9154484" className="max-w-4xl mx-auto px-4" />
+        <MonetizationBanner className="max-w-4xl mx-auto px-4" />
       </div>
 
       <section className="container mx-auto px-4 py-24">
@@ -553,7 +553,7 @@ export default function Home() {
               {listingsWithAds.map((item, index) => (
                 <React.Fragment key={item.id}>
                   {(item as any).isAd ? (
-                    <MonetizationListingAd url="https://phoampor.top/4/9154484" />
+                    <MonetizationListingAd />
                   ) : (
                     <Link
                       to={`/listing/${item.id}`}
@@ -608,7 +608,7 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto">
-        <MonetizationBanner url="https://phoampor.top/4/9154484" className="max-w-4xl mx-auto px-4 mb-8" />
+        <MonetizationBanner className="max-w-4xl mx-auto px-4 mb-8" />
       </div>
     </div>
   );

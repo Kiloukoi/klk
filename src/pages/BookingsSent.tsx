@@ -233,7 +233,7 @@ export default function BookingsSent() {
       
       {/* Monetization Banner */}
       <div className="mb-6">
-        <MonetizationBanner url="https://phoampor.top/4/9154510" />
+        <MonetizationBanner />
       </div>
 
       {bookings.length === 0 ? (
@@ -368,7 +368,7 @@ export default function BookingsSent() {
 
       {/* Bottom Monetization Banner */}
       <div className="mt-8">
-        <MonetizationBanner url="https://phoampor.top/4/9154510" />
+        <MonetizationBanner />
       </div>
     </div>
   );

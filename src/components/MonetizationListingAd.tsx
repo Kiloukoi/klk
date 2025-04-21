@@ -8,7 +8,7 @@ interface MonetizationListingAdProps {
 
 export default function MonetizationListingAd({ 
   className = '', 
-  url = 'https://phoampor.top/4/9154484' 
+  url = 'https://www.profitableratecpm.com/z8jj97wv?key=21713001843103ea1def6c2e4b45be45' 
 }: MonetizationListingAdProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const adContainerRef = useRef<HTMLDivElement>(null);
@@ -30,7 +30,22 @@ export default function MonetizationListingAd({
     
     // Add random parameter to bypass caching
     const randomParam = Math.floor(Math.random() * 1000000);
-    iframe.src = `${url}?${randomParam}&ref=${encodeURIComponent(window.location.hostname)}`;
+    
+    // Only set src if URL is provided
+    if (url) {
+      iframe.src = `${url}?${randomParam}&ref=${encodeURIComponent(window.location.hostname)}`;
+    } else {
+      // Placeholder content when no URL is provided
+      iframe.srcdoc = `
+        <html>
+          <body style="margin:0;display:flex;align-items:center;justify-content:center;background:#f0f0f0;color:#666;font-family:sans-serif;height:100%;">
+            <div style="text-align:center;">
+              <div style="font-size:14px;">Emplacement publicitaire</div>
+            </div>
+          </body>
+        </html>
+      `;
+    }
     
     // Clear container and append iframe
     adContainerRef.current.innerHTML = '';
@@ -56,6 +71,7 @@ export default function MonetizationListingAd({
           ref={adContainerRef} 
           className="absolute inset-0 bg-gray-100"
           data-ad-container="true"
+          data-ad-url={url}
         ></div>
       </div>
       <div className="p-4">
