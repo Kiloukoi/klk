@@ -185,7 +185,7 @@ export default function MyReviews() {
 
       {/* Monetization Banner */}
       <div className="mb-6">
-        <MonetizationBanner url="https://phoampor.top/4/9154510" />
+        <MonetizationBanner url="https://www.profitableratecpm.com/prtwx7u63?key=b8b3ba83074bbb1330d3ec04c489a161" />
       </div>
 
       {pendingReviews.length > 0 && (
