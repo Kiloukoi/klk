@@ -246,6 +246,10 @@ export default function MyListings() {
           ))}
         </div>
       )}
+            {/* Bottom Monetization Banner */}
+      <div className="mt-8">
+        <MonetizationBanner />
+      </div>
     </div>
   );
 }
