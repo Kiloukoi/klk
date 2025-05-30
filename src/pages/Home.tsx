@@ -414,7 +414,7 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto">
-        <MonetizationBanner url="Lien pub" className="max-w-4xl mx-auto px-4" />
+        <MonetizationBanner url="https://www.profitableratecpm.com/z8jj97wv?key=21713001843103ea1def6c2e4b45be45" className="max-w-4xl mx-auto px-4" />
       </div>
 
       <section className="container mx-auto px-4 py-24">
@@ -536,7 +536,7 @@ export default function Home() {
               {listingsWithAds.map((item, index) => (
                 <React.Fragment key={item.id}>
                   {(item as any).isAd ? (
-                    <MonetizationListingAd url="Lien pub" />
+                    <MonetizationListingAd url="https://www.profitableratecpm.com/z8jj97wv?key=21713001843103ea1def6c2e4b45be45" />
                   ) : (
                     <Link
                       to={`/listing/${item.id}`}
