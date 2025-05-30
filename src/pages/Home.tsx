@@ -123,6 +123,10 @@ export default function Home() {
   const fetchListings = async () => {
     setLoading(true);
     try {
+      // Initialize promotedListings as an empty array
+      let promotedListings: Listing[] = [];
+      let promotedError = null;
+
       // Determine if we're in a search or category/subcategory context
       const isFiltering = searchTerm || location || selectedCategory || selectedSubcategory;
       setIsSearchActive(!!searchTerm || !!location);
@@ -157,7 +161,7 @@ export default function Home() {
       // Only show promoted listings in search results or category views
       if (isFiltering) {
         // For search/category results, get promoted listings first, then regular ones
-        const { data: promotedListings, error: promotedError } = await supabase
+        const { data: promotedData, error: fetchPromotedError } = await supabase
           .from('listings')
           .select(`
             *,
@@ -169,32 +173,37 @@ export default function Home() {
           .eq('is_promoted', true)
           .order('created_at', { ascending: false });
 
+        promotedListings = promotedData || [];
+        promotedError = fetchPromotedError;
+
         if (promotedError) throw promotedError;
 
         // Apply the same filters to promoted listings
-        let filteredPromoted = promotedListings || [];
-        
-        if (selectedCategory) {
-          filteredPromoted = filteredPromoted.filter(listing => listing.category_id === selectedCategory);
-        }
-        
-        if (selectedSubcategory) {
-          filteredPromoted = filteredPromoted.filter(listing => listing.subcategory_id === selectedSubcategory);
-        }
-        
-        if (searchTerm) {
-          filteredPromoted = filteredPromoted.filter(listing => 
-            listing.title.toLowerCase().includes(searchTerm.toLowerCase())
-          );
-        }
-        
-        if (location) {
-          filteredPromoted = filteredPromoted.filter(listing => 
-            (listing.location && listing.location.toLowerCase().includes(location.toLowerCase())) ||
-            (listing.postal_code && listing.postal_code.toLowerCase().includes(location.toLowerCase())) ||
-            (listing.city && listing.city.toLowerCase().includes(location.toLowerCase()))
-          );
-        }
+        promotedListings = promotedListings.filter(listing => {
+          let matches = true;
+          
+          if (selectedCategory) {
+            matches = matches && listing.category_id === selectedCategory;
+          }
+          
+          if (selectedSubcategory) {
+            matches = matches && listing.subcategory_id === selectedSubcategory;
+          }
+          
+          if (searchTerm) {
+            matches = matches && listing.title.toLowerCase().includes(searchTerm.toLowerCase());
+          }
+          
+          if (location) {
+            matches = matches && (
+              (listing.location && listing.location.toLowerCase().includes(location.toLowerCase())) ||
+              (listing.postal_code && listing.postal_code.toLowerCase().includes(location.toLowerCase())) ||
+              (listing.city && listing.city.toLowerCase().includes(location.toLowerCase()))
+            );
+          }
+          
+          return matches;
+        });
 
         // Then get regular listings (not promoted)
         query = query.eq('is_promoted', false);
@@ -222,33 +231,7 @@ export default function Home() {
       // Combine promoted and regular listings if we're filtering
       let allListings;
       if (isFiltering) {
-        const filteredPromoted = promotedListings?.filter(listing => {
-          let matches = true;
-          
-          if (selectedCategory) {
-            matches = matches && listing.category_id === selectedCategory;
-          }
-          
-          if (selectedSubcategory) {
-            matches = matches && listing.subcategory_id === selectedSubcategory;
-          }
-          
-          if (searchTerm) {
-            matches = matches && listing.title.toLowerCase().includes(searchTerm.toLowerCase());
-          }
-          
-          if (location) {
-            matches = matches && (
-              (listing.location && listing.location.toLowerCase().includes(location.toLowerCase())) ||
-              (listing.postal_code && listing.postal_code.toLowerCase().includes(location.toLowerCase())) ||
-              (listing.city && listing.city.toLowerCase().includes(location.toLowerCase()))
-            );
-          }
-          
-          return matches;
-        }) || [];
-        
-        allListings = [...filteredPromoted, ...(regularListings || [])];
+        allListings = [...promotedListings, ...(regularListings || [])];
       } else {
         allListings = regularListings || [];
       }
@@ -431,7 +414,7 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto">
-        <MonetizationBanner className="max-w-4xl mx-auto px-4 mb-8" />
+        <MonetizationBanner url="Lien pub" className="max-w-4xl mx-auto px-4" />
       </div>
 
       <section className="container mx-auto px-4 py-24">
@@ -553,7 +536,7 @@ export default function Home() {
               {listingsWithAds.map((item, index) => (
                 <React.Fragment key={item.id}>
                   {(item as any).isAd ? (
-                    <MonetizationListingAd />
+                    <MonetizationListingAd url="Lien pub" />
                   ) : (
                     <Link
                       to={`/listing/${item.id}`}
@@ -608,7 +591,7 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto">
-        <MonetizationBanner className="max-w-4xl mx-auto px-4 mb-8" />
+        <MonetizationBanner url="Lien pub" className="max-w-4xl mx-auto px-4 mb-8" />
       </div>
     </div>
   );
