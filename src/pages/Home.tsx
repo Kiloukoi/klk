@@ -591,7 +591,7 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto">
-        <MonetizationBanner url="Lien pub" className="max-w-4xl mx-auto px-4 mb-8" />
+        <MonetizationBanner url="https://www.profitableratecpm.com/z8jj97wv?key=21713001843103ea1def6c2e4b45be45" className="max-w-4xl mx-auto px-4 mb-8" />
       </div>
     </div>
   );
